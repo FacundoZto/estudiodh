@@ -1,56 +1,146 @@
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { useState } from 'react';
+
+const schema = Yup.object({
+  name: Yup.string().required('El nombre es obligatorio').min(3, 'Mínimo 3 caracteres'),
+  lastname: Yup.string().required('El apellido es obligatorio'),
+  email: Yup.string().email('Email inválido').required('El email es obligatorio'),
+  phone: Yup.string().matches(/^\d+$/, "Solo se permiten números").max(15, "El teléfono no puede superar los 15 dígitos").required("El teléfono es obligatorio"),
+  message: Yup.string().required('El mensaje es obligatorio').min(10, 'El mensaje debe tener al menos 10 caracteres')
+})
+
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (values, { resetForm }) => {
+    console.log('Formulario enviado:', values);
+    setSubmitted(true);
+    resetForm();
+    setTimeout(() => setSubmitted(false), 4000);
+  };
+
   return (
     <section className="bg-light py-5">
       <div className="container px-5 my-5 px-5">
         <div className="text-center mb-5">
-          <div className="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i className="bi bi-envelope"></i></div>
-          <h2 className="fw-bolder">Contacto</h2>
+          <h2 className="fw-bolder">Escribinos para recibir nuestra ayuda</h2>
         </div>
+
         <div className="row gx-5 justify-content-center">
           <div className="col-lg-6">
-           
-            <form id="contactForm">
-           
-              <div className="form-floating mb-3">
-                <input className="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                <label htmlFor="name">Full name</label>
-                <div className="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-              </div>
-              
-              <div className="form-floating mb-3">
-                <input className="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                <label htmlFor="email">Email address</label>
-                <div className="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                <div className="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-              </div>
-              
-              <div className="form-floating mb-3">
-                <input className="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                <label htmlFor="phone">Phone number</label>
-                <div className="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-              </div>
-              
-              <div className="form-floating mb-3">
-                {/* <textarea className="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea> */}
-                <label htmlFor="message">Message</label>
-                <div className="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-              </div>
-              
-              <div className="d-none" id="submitSuccessMessage">
-                <div className="text-center mb-3">
-                  <div className="fw-bolder">Form submission successful!</div>
-                  To activate this form, sign up at
-                  <br />
-                  <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-              </div>
-              
-              <div className="d-none" id="submitErrorMessage"><div className="text-center text-danger mb-3">Error sending message!</div></div>
-              
-              <div className="d-grid"><button className="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-            </form>
+            <Formik
+              initialValues={{
+                name: '',
+                lastname: '',
+                email: '',
+                phone: '',
+                message: '',
+              }}
+              validationSchema={schema}
+              onSubmit={handleSubmit}
+            >
+              {
+                ({ errors, touched }) => (
+                  <Form>
+                    <div className="form-floating mb-3">
+                      <Field
+                        name="name"
+                        id="name"
+                        type="text"
+                        placeholder=""
+                        className={`form-control ${touched.name && errors.name ? 'is-invalid' : ''}`}
+                      />
+                      <label
+                        htmlFor="name"
+                      >Nombre</label>
+                      <ErrorMessage
+                        name='name'
+                        component='div'
+                        className='text-danger' />
+                    </div>
+
+                    <div className="form-floating mb-3">
+                      <Field
+                        name="lastname"
+                        id="lastname"
+                        type="text"
+                        placeholder=""
+                        className={`form-control ${touched.lastname && errors.lastname ? 'is-invalid' : ''}`}
+                      />
+                      <label
+                        htmlFor="lastname"
+                      >Apellido</label>
+                      <ErrorMessage
+                        name='lastname'
+                        component='div'
+                        className='text-danger' />
+                    </div>
+
+                    <div className="form-floating mb-3">
+                      <Field
+                        name="email"
+                        id="email"
+                        type="email"
+                        placeholder=""
+                        className={`form-control ${touched.email && errors.email ? 'is-invalid' : ''}`}
+                      />
+                      <label
+                        htmlFor="email"
+                      >Email</label>
+                      <ErrorMessage
+                        name='email'
+                        component='div'
+                        className='text-danger' />
+                    </div>
+
+                    <div className="form-floating mb-3">
+                      <Field
+                        name="phone"
+                        id="phone"
+                        type="tel"
+                        placeholder=""
+                        className={`form-control ${touched.phone && errors.phone ? 'is-invalid' : ''}`}
+                      />
+                      <label
+                        htmlFor="phone"
+                      >Teléfono</label>
+                      <ErrorMessage
+                        name='phone'
+                        component='div'
+                        className='text-danger' />
+                    </div>
+
+                    <div className="form-floating mb-3">
+                      <Field
+                        as="textarea"
+                        name="message"
+                        id="message"
+                        className={`form-control ${touched.message && errors.message ? 'is-invalid' : ''}`}
+                        placeholder=" "
+                        style={{ height: '120px' }}
+                      />
+                      <label htmlFor="message">Mensaje</label>
+                      <ErrorMessage
+                        name="message"
+                        component="div"
+                        className="invalid-feedback" />
+                    </div>
+
+                    <button type="submit" className="btn btn-primary btn-lg w-100">Enviar</button>
+                    {
+                      submitted &&
+                      <div className="alert alert-success my-2 position-absolute" role="alert">
+                        ¡Formulario enviado con éxito!
+                      </div>
+                    }
+                  </Form>
+                )
+              }
+            </Formik>
           </div>
         </div>
+
       </div>
     </section>
   )
