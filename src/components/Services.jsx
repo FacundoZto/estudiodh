@@ -3,16 +3,17 @@ const Services = () => {
     <section class="bg-light py-5 border-bottom">
       <div class="container px-5 my-5">
         <div class="text-center mb-5">
-          <h3 class="display-6 fw-semibold text-gray mb-2 text-center"> SERVICIOS</h3>
+          <h2 class="fw-bolder"> Servicios</h2>
           <p class="lead mb-0">Servicios contables para que sigas enfocado en hacer crecer tu negocio</p>
         </div>
-        <div class="row gx-5 justify-content-center">
-        
+
+        <div class="row gx-5 justify-content-center row-gap-4">
+
           <div class="col-lg-6 col-xl-4">
-            <div class="card mb-5 mb-xl-0">
+            <div class="card h-100 mb-5 mb-xl-0">
               <div class="card-body p-5">
-                <h3 class='display-8 fs-4 fw-semibold text-gray mb-2 text-center text-uppercase'>Contables</h3>
-                
+                <h3 class='display-8 fs-5 fw-semibold text-gray mb-2 text-center text-uppercase'>Contables</h3>
+
                 <ul class="list-unstyled mb-4">
                   <li class="mb-2">
                     <i class="bi bi-check text-primary"></i>
@@ -38,11 +39,11 @@ const Services = () => {
               </div>
             </div>
           </div>
-         
+
           <div class="col-lg-6 col-xl-4">
-            <div class="card mb-5 mb-xl-0">
+            <div class="card h-100 mb-5 mb-xl-0">
               <div class="card-body p-5">
-              <h3 class='display-8 fs-4 fw-semibold text-gray mb-2 text-center text-uppercase'>Impositivos</h3>
+                <h3 class='display-8 fs-5 fw-semibold text-gray mb-2 text-center text-uppercase'>Impositivos</h3>
                 <ul class="list-unstyled mb-4">
                   <li class="mb-2">
                     <i class="bi bi-check text-primary"></i>
@@ -68,13 +69,28 @@ const Services = () => {
               </div>
             </div>
           </div>
-        
+
           <div class="col-lg-6 col-xl-4">
-            <div class="card">
+            <div class="card h-100 mb-5 mb-xl-0">
               <div class="card-body p-5">
-                
+                <h3 class='display-8 fs-5 fw-semibold text-gray mb-2 text-center text-uppercase'>Laborales</h3>
                 <ul class="list-unstyled mb-4">
-                  
+                  <li class="mb-2">
+                    <i class="bi bi-check text-primary"></i>
+                    Impresión y rúbrica de libro sueldos
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check text-primary"></i>
+                    Liquidación de sueldos y cargas sociales
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check text-primary"></i>
+                    Liquidaciones finales y emisión de recibos
+                  </li>
+                  <li class="mb-2">
+                    <i class="bi bi-check text-primary"></i>
+                    Altas y bajas de empleados en Afip y sindicatos
+                  </li>
                 </ul>
               </div>
             </div>

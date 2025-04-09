@@ -1,0 +1,14 @@
+#carouselExampleSlidesOnly {
+  text-align: -webkit-center;
+}
+
+.comment-card {
+  width: 400px;
+}
+
+.comentary {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 15px;
+}
