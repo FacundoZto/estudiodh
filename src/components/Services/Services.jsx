@@ -1,6 +1,6 @@
 const Services = () => {
   return (
-    <section className="bg-light py-5 border-bottom">
+    <section className="bg-light py-5 border-bottom" id="servicios">
       <div className="container px-5 my-5">
         <div className="text-center mb-5">
           <h2 className="fw-bolder"> Servicios</h2>
@@ -14,7 +14,7 @@ const Services = () => {
               <div className="card-body p-5">
                 <h3 className='display-8 fs-5 fw-semibold text-gray mb-2 text-center text-uppercase'>Contables</h3>
 
-                <ul className="list-unstyled">
+                <ul className="list-unstyled text-center">
                   <li className="mb-2">
                     <i className="bi bi-check text-primary"></i>
                     Registraciones contables y confección de balances
@@ -44,7 +44,7 @@ const Services = () => {
             <div className="card h-100 mb-5 mb-xl-0">
               <div className="card-body p-5">
                 <h3 className='display-8 fs-5 fw-semibold text-gray mb-2 text-center text-uppercase'>Impositivos</h3>
-                <ul className="list-unstyled">
+                <ul className="list-unstyled text-center">
                   <li className="mb-2">
                     <i className="bi bi-check text-primary"></i>
                     Liquidación de impuestos: IVA, Ingresos Brutos, Ganancias Sociedades
@@ -74,7 +74,7 @@ const Services = () => {
             <div className="card h-100 mb-5 mb-xl-0">
               <div className="card-body p-5">
                 <h3 className='display-8 fs-5 fw-semibold text-gray mb-2 text-center text-uppercase'>Laborales</h3>
-                <ul className="list-unstyled">
+                <ul className="list-unstyled text-center">
                   <li className="mb-2">
                     <i className="bi bi-check text-primary"></i>
                     Impresión y rúbrica de libro sueldos

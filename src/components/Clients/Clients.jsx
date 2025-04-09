@@ -3,7 +3,7 @@ import './Clients.css';
 
 const Clients = () => {
   return (
-    <section className="py-5 border-bottom">
+    <section className="py-5 border-bottom" id='clientes'>
       <div className="container px-5 mt-5 mb-4">
         <div className="text-center mb-5">
           <h2 className="fw-bolder">Testimonios & Partners</h2>
