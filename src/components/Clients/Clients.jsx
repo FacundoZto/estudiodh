@@ -3,49 +3,49 @@ import './Clients.css';
 
 const Clients = () => {
   return (
-    <section class="py-5 border-bottom h-100">
-      <div class="container px-5 my-5 px-5">
-        <div class="text-center mb-5">
-          <h2 class="fw-bolder">Testimonios & Partners</h2>
-          <p class="lead mb-0">¿Qué dicen nuestros Clientes?</p>
+    <section className="py-5 border-bottom">
+      <div className="container px-5 mt-5 mb-4">
+        <div className="text-center mb-5">
+          <h2 className="fw-bolder">Testimonios & Partners</h2>
+          <p className="lead mb-0">¿Qué dicen nuestros Clientes?</p>
         </div>
 
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
+        <div id="carouselExampleSlidesOnly" className="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div className="carousel-inner">
             {comments.map((comment, index) => (
               index === 0 ? (
-                <div class="carousel-item active" key={comment.id}>
-                  <div class="card h-100 comment-card">
-                    <div class="card-body">
-                      <div class="comentary text-center">
-                        <i class="bi bi-chat-right-quote-fill text-primary fs-1"></i>
-                        <h5 class="card-title">{comment.name}</h5>
+                <div className="carousel-item active" key={comment.id}>
+                  <div className="card comment-card">
+                    <div className="card-body">
+                      <div className="comentary text-center">
+                        <i className="bi bi-chat-right-quote-fill text-primary fs-1"></i>
+                        <h5 className="card-title">{comment.name}</h5>
                       </div>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <p class="card-text pt-3">
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <p className="card-text pt-3">
                         {comment.text}
                       </p>
                     </div>
                   </div>
                 </div>
               ) : (
-                <div class="carousel-item" key={comment.id}>
-                  <div class="card h-100 comment-card">
-                    <div class="card-body">
-                      <div class="comentary text-center">
-                        <i class="bi bi-chat-right-quote-fill text-primary fs-1"></i>
-                        <h5 class="card-title">{comment.name}</h5>
+                <div className="carousel-item" key={comment.id}>
+                  <div className="card comment-card">
+                    <div className="card-body">
+                      <div className="comentary text-center">
+                        <i className="bi bi-chat-right-quote-fill text-primary fs-1"></i>
+                        <h5 className="card-title">{comment.name}</h5>
                       </div>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <p class="card-text pt-3">
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <i className="bi bi-star-fill text-primary"></i>
+                      <p className="card-text pt-3">
                         {comment.text}
                       </p>
                     </div>
