@@ -11,13 +11,34 @@ const schema = Yup.object({
 })
 
 const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState('');
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     console.log('Formulario enviado:', values);
-    setSubmitted(true);
-    resetForm();
-    setTimeout(() => setSubmitted(false), 4000);
+    try {
+      const response = await fetch('http://localhost:5000/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+
+      if (response.ok) {
+        setSubmitted('Mensaje enviado con éxito');
+        resetForm();
+      } else {
+        setSubmitted('Hubo un error al enviar el mensaje');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      setSubmitted('Error de conexión, por favor intente más tarde');
+    }
+
+    setTimeout(() => {
+      setSubmitted('');
+    }, 4000);
+
   };
 
   return (
@@ -130,8 +151,8 @@ const Contact = () => {
                     <button type="submit" className="btn btn-primary btn-lg w-100">Enviar</button>
                     {
                       submitted &&
-                      <div className="alert alert-success my-2 position-absolute" role="alert">
-                        ¡Formulario enviado con éxito!
+                      <div className="alert alert-info my-2 position-absolute" role="alert">
+                        {submitted}
                       </div>
                     }
                   </Form>
